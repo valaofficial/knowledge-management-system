@@ -1,24 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import 'antd/dist/antd.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  MemoryRouter as Router 
+} from "react-router-dom";
+import Home from './pages/Home'
+import Library from './pages/Library';
+import SingleBook from './pages/Library/SingleBook';
+import About from './pages/About';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home/>,
+  },
+  {
+    path: "/about",
+    element: <About/>,
+  },
+  {
+    path: "/elibrary",
+    element: <Library/>,
+  },
+  {
+    path: "/single-book",
+    element: <SingleBook/>,
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <RouterProvider router={router} />
+    </>
   );
 }
 
